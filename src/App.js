@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {StatesSelector} from './components/StatesSelector'
+import { CitiesSelector } from './components/CitiesSelector';
+import { StripClubs } from './components/StripClubs';
+import { Dropdown } from './components/base/Dropdown';
+import { states } from './data';
 
 class App extends Component {
+  state = {
+    selectedStateId: undefined,
+    selectedCityId: undefined
+  }
+
+  changeStateId = (id) => {
+    this.setState({ selectedStateId: id })
+  }
+
+  changeCityId = (id) => {
+    this.setState({ selectedCityId: id })
+  }
+
   render() {
+    const { selectedStateId } = this.state;
+    const { selectedCityId } = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Dropdown
+          options={ states }
+          selectedValue={ selectedStateId }
+          onChange={ this.changeStateId }
+        />
+        {/* <StatesSelector
+          selectedStateId={ selectedStateId }
+          changeStateId={ this.changeStateId }
+        />
+        <CitiesSelector
+          selectedCityId={ selectedCityId }
+          changeCityId={ this.changeCityId }
+          selectedStateId={ selectedStateId }
+        />
+        <StripClubs
+          selectedCityId={ selectedCityId }
+        /> */}
       </div>
     );
   }

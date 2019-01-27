@@ -1,0 +1,62 @@
+.container {
+    position: relative;
+    cursor: pointer;
+}
+
+.input-block {
+    display: grid;
+    grid-template-columns: auto 25px;
+    grid-template-rows: 25px;
+    grid-column-gap: 5px;
+}
+
+.trigger {
+    background: url('./arrow.svg') center no-repeat;
+    height: 25px;
+    width: 25px;
+    border: 1px solid black;
+}
+
+.trigger-open {
+    transform: rotate(180deg)
+}
+
+.input {
+    display: grid;
+    width: 100%;
+    height: 25px;
+    padding-left: 5px;
+    border: 1px solid black;
+    align-content: center; 
+}
+
+.list {
+    visibility: visible;
+    display: grid;
+    grid-template-rows: 20px;
+    grid-row-gap: 5px;
+    background-color: grey;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    align-items: center;
+}
+
+.list-hidden {
+    visibility: hidden;
+}
+
+.list-item {
+    color: white;
+    padding-left: 5px;
+    cursor: pointer;  
+}
+
+.list-item:hover {
+    background-color: blue;
+}
+
+.placeholder {
+    opacity: 0.7;
+}
