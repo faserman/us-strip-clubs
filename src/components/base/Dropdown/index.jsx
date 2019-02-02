@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import './index.css';
+import { ClickOutside } from '../ClickOutside';
 
 
 export class Dropdown extends Component {
@@ -22,6 +23,10 @@ export class Dropdown extends Component {
 
     onOpen = () => {
         this.setState({ isOpen: true });
+    }
+
+    onClose = () => {
+        this.setState({ isOpen: false });
     }
 
     render() {
@@ -50,18 +55,19 @@ export class Dropdown extends Component {
         const selectedName = selectedOption ? selectedOption.name : <div className="placeholder">Select...</div>
 
         return (
-            <div className="container">
-                <div className="input-block">
-                    <div className="input" onClick={ this.onOpen }>
-                        { selectedName }
+            <ClickOutside onClickOutside={ this.onClose }>
+                <div className="container">
+                    <div className="input-block">
+                        <div className="input" onClick={ this.onOpen }>
+                            { selectedName }
+                        </div>
+                        <div className={ triggerStyle } onClick={ this.handleClick } />
                     </div>
-                    <div className={ triggerStyle } onClick={ this.handleClick } />
+                    <div className={ listStyle } >
+                        { optionElements }
+                    </div>
                 </div>
-                <div className={ listStyle } >
-                    { optionElements }
-                </div>
-            </div>
-
+            </ClickOutside>
         )
     }
 

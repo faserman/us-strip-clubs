@@ -19,13 +19,13 @@ export class CitiesSelector extends Component {
             city.stateId === selectedStateId
         )
         const options = filteredCities.map(city =>
-            <option key={city.id} value={city.id}>{city.name}</option>
+            <option key={ city.id } value={ city.id }>{ city.name }</option>
         )
 
         return (
-            <select value={selecteCityId} onChange={this.handleChange}>
+            <select value={ selecteCityId } onChange={ this.handleChange }>
                 <option>select city</option>
-                {options}
+                { options }
             </select>
         )
     }

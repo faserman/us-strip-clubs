@@ -23,4 +23,5 @@ export const stripClubs = [
     { id: 4, name: 'Horny horse', cityId: 2 },
     { id: 5, name: 'Wild girls', cityId: 5 },
     { id: 6, name: 'Wet asses', cityId: 3 },
+    { id: 7, name: 'asses', cityId: 3 },
 ]
